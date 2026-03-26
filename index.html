@@ -2,48 +2,74 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REALCARS - Dashboard</title>
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav class="sidebar">
-        <h2>🔧 REAL<span>CARS</span></h2>
+        <div class="logo-text-container">
+            <i class="fas fa-tools logo-icon-red"></i>
+            <h2>REAL<span>CARS</span></h2>
+        </div>
+
         <ul>
-            <li><a href="index.html" class="active">Dashboard</a></li>
-            <li><a href="cadastro.html">Clientes</a></li>
-            <li><a href="agendamento.html">Agendamento</a></li>
-            <li><a href="historico.html">Histórico</a></li>
+            <li><a href="index.html" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="cadastro.html"><i class="fas fa-users"></i> Clientes</a></li>
+            <li><a href="agendamento.html"><i class="fas fa-calendar-alt"></i> Agendamento</a></li>
+            <li><a href="historico.html"><i class="fas fa-history"></i> Histórico</a></li>
         </ul>
     </nav>
 
     <main>
-        <h1>Painel Geral</h1>
+        <div class="header-dashboard">
+            <h1>Painel Geral</h1>
+            <p>Bem-vindo de volta! Aqui está o resumo da sua oficina hoje.</p>
+        </div>
+
         <div class="dashboard-cards">
-            <div class="card">
+            <div class="card card-azul">
+                <i class="fas fa-users card-icon"></i>
                 <h3>Total Clientes</h3>
                 <span>12</span>
+                <div class="card-hover-detalhes">
+                    <h4>Novos este mês</h4>
+                    <ul>
+                        <li>+4 Clientes</li>
+                        <li>Meta: 20</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card p">
+
+            <div class="card card-amarelo">
+                <i class="fas fa-clock card-icon"></i>
                 <h3>Serviços Pendentes</h3>
                 <span>04</span>
+                <div class="card-hover-detalhes">
+                    <h4>Aguardando</h4>
+                    <ul>
+                        <li>Troca de Óleo</li>
+                        <li>Freios Civic</li>
+                        <li>Revisão Onix</li>
+                    </ul>
+                </div>
             </div>
-           
 
-  <div class="card c card-concluidos">
-    <h3>Concluídos</h3>
-    <span>28</span>
-
-    <div class="card-hover-detalhes">
-        <h4>Últimos Finalizados</h4>
-        <ul>
-            <li>Civic - PLK9090</li>
-            <li>Corolla - ABC1234</li>
-            <li>Onix - JKL5566</li>
-        </ul>
-    </div>
-</div>
-</div>
+            <div class="card card-verde">
+                <i class="fas fa-check-circle card-icon"></i>
+                <h3>Concluídos</h3>
+                <span>28</span>
+                <div class="card-hover-detalhes">
+                    <h4>Últimos Finalizados</h4>
+                    <ul>
+                        <li>Civic - PLK9090</li>
+                        <li>Corolla - ABC1234</li>
+                        <li>Onix - JKL5566</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </main>
 </body>

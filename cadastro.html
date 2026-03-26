@@ -2,35 +2,58 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Novo Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Cliente | REAL CARS</title>
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="sidebar">
-        <h2>🔧 REAL<span>CARS</span></h2>
-        <ul>
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="cadastro.html" class="active">Clientes</a></li>
-            <li><a href="agendamento.html">Agendamento</a></li>
-            <li><a href="historico.html">Histórico</a></li>
-        </ul>
-    </nav>
+ <nav class="sidebar">
+    <div class="logo-text-container">
+        <i class="fas fa-tools logo-icon-red"></i>
+        <h2>REAL<span>CARS</span></h2>
+    </div>
+
+    <ul>
+        <li><a href="index.html" id="link-dash"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+        <li><a href="cadastro.html" id="link-cli"><i class="fas fa-users"></i> Clientes</a></li>
+        <li><a href="agendamento.html" id="link-age"><i class="fas fa-calendar-alt"></i> Agendamento</a></li>
+        <li><a href="historico.html" id="link-his"><i class="fas fa-history"></i> Histórico</a></li>
+    </ul>
+</nav>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <main>
         <div class="form-container">
-            <h1>Cadastrar Cliente</h1>
+            <div class="header-content">
+                <h1><i class="fas fa-user-plus"></i> Cadastrar Cliente</h1>
+                <p>Preencha os dados abaixo para iniciar o atendimento</p>
+            </div>
+            
             <div class="box-cadastro">
                 <div class="form-group">
-                    <label>Nome do Cliente</label>
-                    <input type="text" placeholder="Digite o nome...">
+                    <label><i class="fas fa-user"></i> Nome Completo</label>
+                    <input type="text" placeholder="Ex: João Silva">
                 </div>
+                
                 <div class="form-group">
-                    <label>Veículo e Placa</label>
+                    <label><i class="fas fa-car"></i> Veículo e Placa</label>
                     <input type="text" placeholder="Ex: Corolla - ABC1234">
                 </div>
-                <a href="agendamento.html" class="btn-salvar">Confirmar e Ir para Agendamento</a>
+
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Telefone de Contato</label>
+                    <input type="text" placeholder="(00) 00000-0000">
+                </div>
+                
+                <a href="agendamento.html" class="btn-salvar">
+                    Confirmar e Agendar <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
+            <p class="footer-note">Sistema de Gestão RealCars &copy; 2026</p>
         </div>
     </main>
 </body>
-</html>  
+</html>

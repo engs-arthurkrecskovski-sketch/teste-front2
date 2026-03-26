@@ -1,144 +1,152 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f6f8; display: flex; }
+
+body { 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    background-color: #111111; /* Fundo escuro igual ao Cadastro */
+    color: white;
+    display: flex; 
+}
 
 main {
-    margin-left: 280px; /* Largura da sidebar */
-    width: 100%;
+    margin-left: 280px; 
+    width: calc(100% - 280px);
     padding: 3rem;
+    min-height: 100vh;
 }
 
-h1 { color: #1e293b; margin-bottom: 20px; }
+/* Cabeçalho do Dashboard */
+.header-dashboard {
+    margin-bottom: 40px;
+}
 
-.dashboard-cards { display: flex; gap: 20px; }
+.header-dashboard h1 { 
+    color: #ffffff; 
+    font-size: 2.2rem;
+    margin-bottom: 5px; 
+}
 
+.header-dashboard p {
+    color: #888;
+}
+
+/* Container de Cards */
+.dashboard-cards { 
+    display: flex; 
+    gap: 25px; 
+}
+
+/* Card Estilizado */
 .card {
-    background: #fff;
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background: #1c1e21; /* Cinza escuro dos cards de clientes */
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
     flex: 1;
     text-align: center;
-    border-top: 6px solid #3b82f6;
-}
-.card.p { border-color: #f59e0b; }
-.card.c { border-color: #10b981; }
-.card h3 { color: #64748b; font-size: 0.9rem; text-transform: uppercase; }
-.card span { font-size: 3rem; font-weight: bold; display: block; margin-top: 10px; color: #1e293b; }
-
-
-.card.card-detalhes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Faz o card esticar um pouco se necessário */
-    height: auto; 
-    padding-bottom: 1.5rem;
-}
-
-.card-lista {
-    margin-top: 1.5rem;
-    width: 100%;
-    border-top: 1px solid #f1f5f9;
-    padding-top: 1.5rem;
-    max-height: 250px; /* Limita a altura se tiver muita coisa */
-    overflow-y: auto; /* Adiciona barra de rolagem se passar da altura */
-}
-
-.card-concluidos {
-    position: relative; /* Necessário para posicionar a telinha */
-    cursor: help;
-}
-
-/* Estilo da Telinha (Escondida por padrão) */
-.card-hover-detalhes {
-    position: absolute;
-    top: 100%; /* Aparece logo abaixo do card */
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    width: 220px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    padding: 1.5rem;
-    z-index: 100;
-    
-    /* Efeito de Esconder */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    border-top: 4px solid #10b981; /* Cor verde dos concluídos */
-}
-
-/* Deixa o card pronto para receber a janelinha */
-.card-concluidos {
     position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-top: 4px solid #3b82f6;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    cursor: pointer;
 }
 
-/* Janelinha flutuante compacta */
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.card h3 { 
+    color: #888; 
+    font-size: 0.85rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+.card span { 
+    font-size: 3.5rem; 
+    font-weight: 900; 
+    display: block; 
+    margin-top: 10px; 
+    color: #ffffff; 
+}
+
+/* Cores dos Cards */
+.card-azul { border-top-color: #3b82f6; }
+.card-azul .card-icon { color: #3b82f6; }
+
+.card-amarelo { border-top-color: #f59e0b; }
+.card-amarelo .card-icon { color: #f59e0b; }
+
+.card-verde { border-top-color: #10b981; }
+.card-verde .card-icon { color: #10b981; }
+
+/* Efeito de Levantar o Card */
+.card:hover {
+    transform: translateY(-10px);
+    background-color: #25282c;
+}
+
+/* JANELINHA FLUTUANTE (HOVER) - Melhorada */
 .card-hover-detalhes {
     position: absolute;
-    top: 80%; /* Começa um pouco mais para cima para não sumir da tela */
+    top: 105%; /* Aparece colado embaixo */
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    
-    /* Tamanho reduzido */
-    width: 180px; 
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    padding: 12px;
-    
-    /* Escondido por padrão */
+    width: 90%; 
+    background-color: #2c2f33;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    padding: 15px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
-    border-top: 3px solid #10b981;
     z-index: 999;
+    border: 1px solid #3e4247;
 }
 
-/* Título menor */
-.card-hover-detalhes h4 {
-    font-size: 0.75rem;
-    color: #64748b;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-/* Lista bem apertadinha */
-.card-hover-detalhes ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.card-hover-detalhes li {
-    font-size: 0.8rem;
-    color: #1e293b;
-    padding: 4px 0;
-    border-bottom: 1px solid #f1f5f9;
-    text-align: center;
-}
-
-.card-hover-detalhes li:last-child {
-    border-bottom: none;
+/* Triângulo da janelinha */
+.card-hover-detalhes::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #2c2f33 transparent;
 }
 
 .card:hover .card-hover-detalhes {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(5px);
+    transform: translateX(-50%) translateY(0px);
 }
 
-.card.p .card-hover-detalhes {
-    border-top: 3px solid #f59e0b;
+.card-hover-detalhes h4 {
+    font-size: 0.7rem;
+    color: #e63946; /* Vermelho padrão da sua marca */
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
-.card.c .card-hover-detalhes {
-    border-top: 3px solid #10b981;
+.card-hover-detalhes ul {
+    list-style: none;
+    text-align: left;
 }
 
-.card .card-hover-detalhes {
-    border-top: 3px solid #3b82f6;
+.card-hover-detalhes li {
+    font-size: 0.85rem;
+    color: #ddd;
+    padding: 6px 0;
+    border-bottom: 1px solid #3e4247;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
+
+.card-hover-detalhes li::before {
+    content: '•';
+    color: #e63946;
+}
+
+.card-hover-detalhes li:last-child { border-bottom: none; }

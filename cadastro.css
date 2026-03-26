@@ -1,10 +1,127 @@
+/* Configurações Gerais */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial; display: flex; background: #f4f6f8; }
-main { margin-left: 280px; padding: 3rem; width: 100%; }
-.box-cadastro { background: white; padding: 2.5rem; border-radius: 12px; max-width: 500px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-.form-group { margin-bottom: 1.5rem; }
-label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #475569; }
-input { width: 100%; padding: 0.9rem; border: 1px solid #cbd5e1; border-radius: 8px; }
-.btn-salvar { display: block; text-align: center; padding: 1rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-.btn-salvar:hover { background: #2563eb; }
+body { 
+    display: flex; 
+    background: #1a1a1a; /* Cinza escuro */
+    color: #ffffff; /* Letra branca */
+    min-height: 100vh;
+}
+
+/* Ajuste do Main para centralizar o conteúdo */
+main { 
+    margin-left: 280px; 
+    width: calc(100% - 280px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Container do Formulário */
+.form-container {
+    width: 100%;
+    max-width: 550px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.header-content {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header-content h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #e63946; /* Vermelho RealCars */
+}
+
+.header-content p {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+/* Box de Cadastro */
+.box-cadastro { 
+    background: #2d2d2d; /* Cinza um pouco mais claro que o fundo */
+    padding: 3rem; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-top: 5px solid #e63946; /* Detalhe em vermelho no topo */
+}
+
+.form-group { 
+    margin-bottom: 1.8rem; 
+}
+
+label { 
+    display: block; 
+    margin-bottom: 0.7rem; 
+    font-weight: 500; 
+    color: #efefef;
+    font-size: 0.95rem;
+}
+
+label i {
+    color: #e63946; /* Ícones em vermelho */
+    margin-right: 8px;
+}
+
+input { 
+    width: 100%; 
+    padding: 1rem; 
+    background: #3d3d3d;
+    border: 1px solid #4d4d4d; 
+    border-radius: 8px; 
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #e63946;
+    box-shadow: 0 0 8px rgba(230, 57, 70, 0.3);
+}
+
+/* Botão Moderno */
+.btn-salvar { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1.2rem; 
+    background: #e63946; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.2s, background 0.3s;
+    margin-top: 1rem;
+}
+
+.btn-salvar:hover { 
+    background: #c1121f; 
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+}
+
+.footer-note {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Animação simples */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -2,28 +2,38 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar Serviço - REAL CARS</title>
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="agendamento.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav class="sidebar">
-        <h2>🔧 REAL<span>CARS</span></h2>
+        <div class="logo-text-container">
+            <i class="fas fa-tools logo-icon-red"></i>
+            <h2>REAL<span>CARS</span></h2>
+        </div>
+
         <ul>
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="cadastro.html">Clientes</a></li>
-            <li><a href="agendamento.html" class="active">Agendamento</a></li>
-            <li><a href="historico.html">Histórico</a></li>
+            <li><a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="cadastro.html"><i class="fas fa-users"></i> Clientes</a></li>
+            <li><a href="agendamento.html" class="active"><i class="fas fa-calendar-alt"></i> Agendamento</a></li>
+            <li><a href="historico.html"><i class="fas fa-history"></i> Histórico</a></li>
         </ul>
     </nav>
 
     <main>
         <div class="agendamento-content">
-            <h1>Novo Agendamento</h1>
+            <div class="header-page">
+                <i class="fas fa-calendar-plus header-icon"></i>
+                <h1>Novo Agendamento</h1>
+                <p>Preencha os detalhes para reservar o serviço</p>
+            </div>
             
             <div class="box-agendar">
                 <div class="form-group">
-                    <label>Selecionar Cliente</label>
+                    <label><i class="fas fa-user"></i> Selecionar Cliente</label>
                     <select>
                         <option value="">Selecione um cliente cadastrado...</option>
                         <option>João Silva (Civic - PLK9090)</option>
@@ -32,7 +42,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Tipo de Serviço</label>
+                    <label><i class="fas fa-oil-can"></i> Tipo de Serviço</label>
                     <select>
                         <option>Revisão Geral</option>
                         <option>Troca de Óleo</option>
@@ -44,26 +54,28 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Data</label>
+                        <label><i class="fas fa-calendar-day"></i> Data</label>
                         <input type="date">
                     </div>
                     <div class="form-group">
-                        <label>Horário</label>
+                        <label><i class="fas fa-clock"></i> Horário</label>
                         <input type="time">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Valor Estimado (R$)</label>
+                    <label><i class="fas fa-dollar-sign"></i> Valor Estimado (R$)</label>
                     <input type="number" step="0.01" placeholder="0,00">
                 </div>
 
                 <div class="form-group">
-                    <label>Observações / Sintomas</label>
+                    <label><i class="fas fa-comment-dots"></i> Observações / Sintomas</label>
                     <textarea rows="3" placeholder="Ex: Barulho na suspensão dianteira..."></textarea>
                 </div>
 
-                <a href="historico.html" class="btn-confirmar">Finalizar e Salvar Agendamento</a>
+                <button class="btn-confirmar">
+                    FINALIZAR E SALVAR AGENDAMENTO <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
     </main>
