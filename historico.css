@@ -1,8 +1,101 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial; display: flex; background: #f4f6f8; }
-main { margin-left: 280px; padding: 3rem; width: 100%; }
-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-th { background: #f8fafc; padding: 1.2rem; text-align: left; color: #64748b; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-td { padding: 1.2rem; border-bottom: 1px solid #f1f5f9; color: #1e293b; }
-.status-pendente { color: #d97706; background: #fef3c7; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
-.status-concluido { color: #059669; background: #d1fae5; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #111111;
+    color: white;
+    display: flex;
+}
+
+main {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.historico-content {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Cabeçalho igual ao agendamento */
+.header-page {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-icon {
+    font-size: 3rem;
+    color: #e63946;
+    margin-bottom: 15px;
+}
+
+.header-page h1 {
+    font-size: 2.2rem;
+}
+
+.header-page p {
+    color: #888;
+}
+
+/* Card */
+.box-historico {
+    background-color: #1c1e21;
+    padding: 30px;
+    border-radius: 20px;
+    border-top: 4px solid #e63946;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 15px;
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    border-bottom: 1px solid #2c2f33;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #2c2f33;
+}
+
+/* Hover bonito */
+tbody tr:hover {
+    background-color: #2a2d31;
+}
+
+/* Status padrão */
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Verde */
+.status.concluido {
+    background-color: rgba(0, 255, 150, 0.15);
+    color: #00d084;
+}
+
+/* Amarelo */
+.status.pendente {
+    background-color: rgba(255, 200, 0, 0.15);
+    color: #ffb703;
+}
