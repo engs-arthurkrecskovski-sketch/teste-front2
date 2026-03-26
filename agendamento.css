@@ -33,13 +33,13 @@ main {
 }
 
 .header-icon {
-    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
     color: #e63946;
     margin-bottom: 15px;
 }
 
 .header-page h1 {
-    font-size: 2.2rem;
+    font-family: 'Inter', sans-serif;
     margin-bottom: 5px;
 }
 
