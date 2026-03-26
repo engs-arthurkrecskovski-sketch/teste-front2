@@ -1,8 +1,8 @@
-* {
+** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif; /* Alterado aqui */
 }
 
 body {
@@ -32,14 +32,15 @@ main {
     margin-bottom: 30px;
 }
 
-.header-icon {
-    font-family: 'Poppins', sans-serif;
+..header-icon {
+    font-family: 'Poppins', sans-serif; /* Já estava correto, mas agora com a importação vai funcionar */
     color: #e63946;
     margin-bottom: 15px;
 }
 
 .header-page h1 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif; /* Garantindo o uso da Inter */
+    font-weight: 700; /* Deixa o título mais forte */
     margin-bottom: 5px;
 }
 
@@ -53,7 +54,7 @@ main {
     background-color: #1c1e21;
     padding: 40px;
     border-radius: 20px;
-    border-top: 4px solid #e63946; /* Borda iluminada igual ao cadastro */
+    border-top: 4px solid #e63946;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -75,8 +76,8 @@ main {
     width: 20px;
 }
 
-.form-group input, 
-.form-group select, 
+.form-group input,
+.form-group select,
 .form-group textarea {
     width: 100%;
     padding: 12px 15px;
@@ -88,8 +89,8 @@ main {
     transition: 0.3s;
 }
 
-.form-group input:focus, 
-.form-group select:focus, 
+.form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
     border-color: #e63946;
     background-color: #35393e;
@@ -137,12 +138,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
 }
+
+/* Animação */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
         filter: blur(4px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -161,13 +165,27 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     animation: fadeIn 0.5s ease-in-out forwards;
 }
 
+.form-group:nth-child(1) {
+    animation-delay: 0.1s;
+}
 
-.form-group:nth-child(1) { animation-delay: 0.1s; }
-.form-group:nth-child(2) { animation-delay: 0.2s; }
-.form-row { animation-delay: 0.3s; }
-.form-group:nth-child(4) { animation-delay: 0.4s; }
-.btn-confirmar { animation-delay: 0.5s; }
+.form-group:nth-child(2) {
+    animation-delay: 0.2s;
+}
 
+.form-row {
+    animation-delay: 0.3s;
+}
+
+.form-group:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.btn-confirmar {
+    animation-delay: 0.5s;
+}
+
+/* WhatsApp flutuante */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -182,3 +200,4 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
+
