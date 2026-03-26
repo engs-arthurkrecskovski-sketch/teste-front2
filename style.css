@@ -166,4 +166,17 @@ main {
     transform: scale(1.1);
 }
 
+.logo-container {
+  position: absolute;
+  top: 450px;
+  right: 20px;
+  bottom: 700px;
+  left: 700px;
+}
 
+.logo-container img {
+    position: relative;
+    max-width: 400px;
+    width: 150%;
+    opacity: 10;
+}
