@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico</title>
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="historico.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <h2>🔧 REAL<span>CARS</span></h2>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="cadastro.html">Clientes</a></li>
+            <li><a href="agendamento.html">Agendamento</a></li>
+            <li><a href="historico.html" class="active">Histórico</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="historico-container">
+            <h1>Histórico de Serviços</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Veículo</th>
+                        <th>Serviço</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>João Silva</td>
+                        <td>Honda Civic</td>
+                        <td>Troca de Óleo</td>
+                        <td>25/10/2023</td>
+                        <td><span class="status-concluido">CONCLUÍDO</span></td>
+                    </tr>
+                    <tr>
+                        <td>Maria Oliveira</td>
+                        <td>Chevrolet Onix</td>
+                        <td>Alinhamento</td>
+                        <td>28/10/2023</td>
+                        <td><span class="status-pendente">PENDENTE</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

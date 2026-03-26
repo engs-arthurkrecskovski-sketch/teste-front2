@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: Arial;
+    background: #f4f6f8;
+}
+
+main {
+    margin-left: 280px;
+    padding: 3rem;
+    width: 100%;
+}
+
+.box-agendar {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    font-weight: bold;
+    color: #475569;
+    display: block;
+}
+
+select,
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    margin-top: 8px;
+    font-family: Arial;
+}
+
+/* Ajuste para campos lado a lado */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    display :grid;
+}
+
+.btn-confirmar {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    padding: 14px;
+    background: #10b981;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-confirmar:hover {
+    background: #059669;
+}
