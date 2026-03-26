@@ -1,4 +1,3 @@
-/* Configurações Gerais */
 * { 
     margin: 0; 
     padding: 0; 
@@ -8,12 +7,11 @@
 
 body { 
     display: flex; 
-    background: #1a1a1a; /* Cinza escuro */
-    color: #ffffff; /* Letra branca */
+    background: #1a1a1a;
+    color: #ffffff;
     min-height: 100vh;
 }
 
-/* Ajuste do Main para centralizar o conteúdo */
 main { 
     margin-left: 280px; 
     width: calc(100% - 280px);
@@ -23,7 +21,6 @@ main {
     padding: 2rem;
 }
 
-/* Container do Formulário */
 .form-container {
     width: 100%;
     max-width: 550px;
@@ -38,7 +35,7 @@ main {
 .header-content h1 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: #e63946; /* Vermelho RealCars */
+    color: #e63946;
 }
 
 .header-content p {
@@ -46,13 +43,12 @@ main {
     font-size: 0.9rem;
 }
 
-/* Box de Cadastro */
 .box-cadastro { 
-    background: #2d2d2d; /* Cinza um pouco mais claro que o fundo */
+    background: #2d2d2d;
     padding: 3rem; 
     border-radius: 16px; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border-top: 5px solid #e63946; /* Detalhe em vermelho no topo */
+    border-top: 5px solid #e63946;
 }
 
 .form-group { 
@@ -68,7 +64,7 @@ label {
 }
 
 label i {
-    color: #e63946; /* Ícones em vermelho */
+    color: #e63946;
     margin-right: 8px;
 }
 
@@ -89,7 +85,6 @@ input:focus {
     box-shadow: 0 0 8px rgba(230, 57, 70, 0.3);
 }
 
-/* Botão Moderno */
 .btn-salvar { 
     display: flex;
     align-items: center;
@@ -120,7 +115,6 @@ input:focus {
     color: #666;
 }
 
-/* Animação simples */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }

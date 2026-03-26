@@ -1,8 +1,7 @@
-/* Configuração da Barra Lateral */
 .sidebar {
     width: 280px;
     height: 100vh;
-    background-color: #111111; /* Preto total igual à sua página clientes */
+    background-color: #111111;
     padding: 2rem 0;
     position: fixed;
     left: 0;
@@ -11,7 +10,6 @@
     flex-direction: column;
 }
 
-/* Logo: Ícone + REALCARS */
 .logo-text-container {
     display: flex;
     align-items: center;
@@ -21,7 +19,7 @@
 }
 
 .logo-icon-red {
-    color: #c31520; /* Vermelho padrão */
+    color: #c31520;
     font-size: 1.6rem;
 }
 
@@ -36,7 +34,6 @@
     color: #c31520;
 }
 
-/* Links do Menu */
 .sidebar ul {
     list-style: none;
     padding: 0;
@@ -50,24 +47,18 @@
     text-decoration: none;
     padding: 1rem 1.5rem;
     font-family: sans-serif;
-    border-left: 4px solid transparent; /* Reserva espaço para a borda */
+    border-left: 4px solid transparent;
     transition: 0.3s;
 }
 
-/* Efeito Hover */
 .sidebar a:hover {
     background-color: rgba(255, 255, 255, 0.05);
     color: #fff;
 }
 
-/* ESTADO ATIVO (O que você quer em todas) */
 .sidebar a.active {
-    background-color: #1a1c1e; /* Fundo do item selecionado */
+    background-color: #1a1c1e;
     color: #ffffff !important;
     font-weight: bold;
-    border-left: 4px solid #c31520; /* Bordinha vermelha reta na esquerda */
+    border-left: 4px solid #c31520;
 }
-
-
-
-
