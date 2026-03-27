@@ -4,13 +4,14 @@
     height: 100vh;
     background-color: #111111;
     padding: 2rem 0;
-    position: fixed; /* Mantém o menu fixo ao rolar a página */
+    position: fixed;
     left: 0;
     top: 0;
     display: flex;
     flex-direction: column;
     z-index: 1000;
     border-right: 1px solid #1a1c1e;
+    transition: all 0.3s ease;
 }
 
 /* Container do Logotipo */
@@ -31,14 +32,14 @@
     color: white; 
     font-size: 1.4rem; 
     margin: 0; 
-    font-family: 'Oswald', sans-serif; /* Fonte robusta para a marca */
+    font-family: 'Oswald', sans-serif;
 }
 
 .sidebar h2 span { 
     color: #c31520; 
 }
 
-/* Configuração da Lista de Links */
+/* Lista de Navegação */
 .sidebar ul { 
     list-style: none; 
     padding: 0; 
@@ -56,13 +57,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Efeito ao passar o mouse */
 .sidebar a:hover { 
     background-color: rgba(255, 255, 255, 0.05); 
     color: #fff; 
 }
 
-/* Estilo do link da página atual */
 .sidebar a.active { 
     background-color: #1a1c1e; 
     color: #ffffff !important; 
@@ -74,37 +73,35 @@
 @media (max-width: 768px) {
     .sidebar {
         width: 100% !important;
-        height: auto;
-        position: fixed; /* Mantém o menu no topo do celular */
+        height: auto; /* Deixa de ocupar a tela toda */
+        position: fixed; /* Fixa no topo */
         padding: 0.5rem 0;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column; /* Mantém coluna ou muda para linha se preferir */
+        border-right: none;
+        border-bottom: 1px solid #1a1c1e;
     }
 
     .logo-text-container {
-        margin-bottom: 0;
-        padding: 0 1rem;
+        margin-bottom: 0.5rem;
+        justify-content: center;
     }
-
-    .sidebar h2 { font-size: 1.1rem; }
 
     .sidebar ul {
         display: flex;
-        justify-content: flex-end;
-        flex-wrap: nowrap;
+        justify-content: center;
+        width: 100%;
     }
 
     .sidebar a {
         padding: 0.8rem;
-        font-size: 0.7rem;
-        flex-direction: column; /* Ícone em cima do texto no celular */
-        gap: 3px;
+        font-size: 0.75rem;
+        flex-direction: column; /* Ícone sobre o texto */
+        gap: 5px;
         border-left: none;
-        border-bottom: 3px solid transparent;
+        text-align: center;
+        flex: 1; /* Distribui os botões igualmente */
     }
 
-    /* No mobile, o destaque da página ativa vai para a borda inferior */
     .sidebar a.active { 
         border-left: none;
         border-bottom: 3px solid #c31520; 

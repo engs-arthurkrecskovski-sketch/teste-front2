@@ -7,7 +7,6 @@
     box-sizing: border-box; 
 }
 
-/* Configuração do corpo da página e layout lado a lado */
 body { 
     font-family: 'Montserrat', sans-serif; 
     background-color: #121212; 
@@ -18,9 +17,8 @@ body {
 }
 
 /* --- ESTRUTURA PRINCIPAL --- */
-/* Ajuste de margem para não ficar por baixo da sidebar lateral */
 main {
-    margin-left: 280px; 
+    margin-left: 280px; /* Espaço da sidebar no desktop */
     width: calc(100% - 280px);
     padding: 3rem;
     flex-grow: 1;
@@ -46,7 +44,7 @@ main {
     font-weight: 300;
 }
 
-/* Logo no canto superior direito */
+/* Logo no canto superior direito (Desktop) */
 .logo-top-right {
     position: absolute;
     top: 0;
@@ -78,7 +76,7 @@ main {
     cursor: help;
 }
 
-/* Estilo base para os balões de informação (Tooltips) */
+/* Tooltips (Balões de Informação) */
 .card::after {
     position: absolute;
     bottom: 115%;
@@ -99,19 +97,16 @@ main {
     pointer-events: none;
 }
 
-/* Ativação do balão no hover */
 .card:hover::after { 
     opacity: 1; 
     visibility: visible; 
     transform: translateX(-50%) translateY(0); 
 }
 
-/* Conteúdo específico de cada balão */
 .card-azul::after { content: "CLIENTES:\A • João Silva\A • Maria Oliveira\A • Murilo Grando"; }
 .card-amarelo::after { content: "PENDENTES:\A • Onix (Alinhamento)\A • Fusca (Freio)"; }
 .card-verde::after { content: "CONCLUÍDOS:\A • Civic (Óleo)\A • Cayenne (Revisão)"; }
 
-/* Cores das bordas dos cards */
 .card-azul { border-color: #3b82f6; }
 .card-amarelo { border-color: #f59e0b; }
 .card-verde { border-color: #10b981; }
@@ -123,7 +118,6 @@ main {
 }
 
 /* --- GRADE DE CONTEÚDO INFERIOR --- */
-/* Layout em duas colunas para o conteúdo de baixo */
 .dashboard-grid-bottom {
     display: grid;
     grid-template-columns: 1.5fr 1fr; 
@@ -138,7 +132,6 @@ main {
     border: 1px solid #2c2f33;
 }
 
-/* Itens da fila de serviços */
 .fila-item {
     display: flex;
     justify-content: space-between;
@@ -148,13 +141,13 @@ main {
     margin-bottom: 10px;
 }
 
-/* Etiquetas coloridas (Badges) */
+/* Etiquetas de Status */
 .badge { padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
 .badge-amarelo { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
 .badge-azul { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
 .badge-verde { background: rgba(16, 185, 129, 0.2); color: #10b981; }
 
-/* Botões de atalho rápido */
+/* Atalhos Rápidos */
 .atalhos { display: flex; flex-direction: column; gap: 10px; }
 .btn-atalho {
     background: #2c2f33; color: white; text-decoration: none;
@@ -162,6 +155,14 @@ main {
     border: 1px solid #3e4247; transition: 0.3s;
 }
 .btn-atalho:hover { background: #e63946; }
+
+/* Status da Oficina */
+.status-oficina {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #2c2f33;
+    font-size: 0.85rem;
+}
 
 /* --- WHATSAPP FLUTUANTE --- */
 .whatsapp-float {
@@ -172,24 +173,33 @@ main {
     height: 55px;
     border-radius: 50%;
     z-index: 1000;
+    transition: 0.3s;
 }
 
-/* --- RESPONSIVIDADE --- */
+.whatsapp-float:hover { transform: scale(1.1); }
 
-/* Ajuste para telas médias (tablets/laptops) */
+/* --- RESPONSIVIDADE (MOBILE & TABLET) --- */
+
+/* Ajuste para Tablets */
 @media (max-width: 1100px) {
     .dashboard-grid-bottom { grid-template-columns: 1fr; }
 }
 
-/* Ajuste para telas pequenas (celulares) */
+/* Ajuste Crítico para Celulares */
 @media (max-width: 768px) {
-    body { flex-direction: column; } 
+    body { 
+        flex-direction: column; /* Sidebar vai para o topo */
+    }
 
     main {
-        margin-left: 0; 
-        width: 100%;
+        margin-left: 0 !important; /* Remove recuo lateral */
+        width: 100% !important;
         padding: 1.5rem;
-        padding-top: 80px; 
+        padding-top: 140px !important; /* Espaço para não ficar sob a sidebar fixa */
+    }
+
+    .header-dashboard {
+        text-align: center;
     }
 
     .header-dashboard h1 { font-size: 2rem; }
@@ -197,10 +207,15 @@ main {
     .logo-top-right { 
         position: relative; 
         display: block; 
-        margin-bottom: 20px; 
+        margin: 0 auto 20px auto; 
+        text-align: center;
     }
 
+    /* Cards em coluna no mobile */
     .dashboard-cards { flex-direction: column; }
     .card { width: 100%; }
-    .card::after { display: none; } /* Remove balões no mobile para evitar bugs de toque */
+    .card::after { display: none; } /* Remove tooltips no toque */
+
+    /* Grid inferior em uma coluna */
+    .dashboard-grid-bottom { grid-template-columns: 1fr; }
 }
