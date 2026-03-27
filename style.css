@@ -1,21 +1,28 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
 body { 
     font-family: 'Segoe UI', Arial, sans-serif; 
     background-color: #1d1d1d;
     color: white;
     display: flex; 
+    min-height: 100vh;
 }
 
 main {
     margin-left: 280px; 
     width: calc(100% - 280px);
     padding: 3rem;
-    min-height: 100vh;
+    flex-grow: 1;
+    transition: all 0.3s ease;
 }
 
 .header-dashboard {
     margin-bottom: 40px;
+    position: relative;
 }
 
 .header-dashboard h1 { 
@@ -28,9 +35,11 @@ main {
     color: #888;
 }
 
+/* CARDS RESPONSIVOS */
 .dashboard-cards { 
     display: flex; 
     gap: 25px; 
+    flex-wrap: wrap; 
 }
 
 .card {
@@ -38,6 +47,7 @@ main {
     padding: 2.5rem 1.5rem;
     border-radius: 20px;
     flex: 1;
+    min-width: 280px;
     text-align: center;
     position: relative;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -69,10 +79,8 @@ main {
 
 .card-azul { border-top-color: #3b82f6; }
 .card-azul .card-icon { color: #3b82f6; }
-
 .card-amarelo { border-top-color: #f59e0b; }
 .card-amarelo .card-icon { color: #f59e0b; }
-
 .card-verde { border-top-color: #10b981; }
 .card-verde .card-icon { color: #10b981; }
 
@@ -98,61 +106,29 @@ main {
     border: 1px solid #3e4247;
 }
 
-.card-hover-detalhes::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 8px;
-    border-style: solid;
-    border-color: transparent transparent #2c2f33 transparent;
-}
-
 .card:hover .card-hover-detalhes {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0px);
 }
 
-.card-hover-detalhes h4 {
-    font-size: 0.7rem;
-    color: #e63946;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
+.card-hover-detalhes h4 { font-size: 0.7rem; color: #e63946; margin-bottom: 10px; text-transform: uppercase; }
+.card-hover-detalhes ul { list-style: none; text-align: left; }
+.card-hover-detalhes li { font-size: 0.85rem; color: #ddd; padding: 6px 0; border-bottom: 1px solid #3e4247; display: flex; align-items: center; gap: 8px; }
 
-.card-hover-detalhes ul {
-    list-style: none;
-    text-align: left;
-}
-
-.card-hover-detalhes li {
-    font-size: 0.85rem;
-    color: #ddd;
-    padding: 6px 0;
-    border-bottom: 1px solid #3e4247;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.card-hover-detalhes li::before {
-    content: '•';
-    color: #e63946;
-}
-
-.card-hover-detalhes li:last-child { border-bottom: none; }
-
+/* --- AJUSTE DO WHATSAPP (CORRIGIDO) --- */
 .whatsapp-float {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     width: 60px;
     height: 60px;
     z-index: 9999;
-    cursor: pointer;
-    transition: 0.3s;
+    border-radius: 50%;
+    object-fit: cover; /* Impede que a imagem estique */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 2px solid #25d366;
+    transition: transform 0.3s ease;
 }
 
 .whatsapp-float:hover {
@@ -160,15 +136,38 @@ main {
 }
 
 .logo-top-right {
-    position: fixed;
-    top: 20px;
-    right: 80px;
-    z-index: 999;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .logo-top-right img {
-    width: 200px;
+    width: 150px;
     height: auto;
 }
 
+/* --- MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+    main { padding: 2rem; }
+    .logo-top-right img { width: 120px; }
+}
 
+@media (max-width: 768px) {
+    body { flex-direction: column; }
+    main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 1.5rem;
+    }
+    .logo-top-right {
+        position: static;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+}

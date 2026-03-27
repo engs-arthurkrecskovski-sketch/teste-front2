@@ -1,142 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif; 
-}
-
-.header-page h1 {
-    font-family: 'Playfair Display', serif; 
-    font-size: 2.8rem;
-    color: white;
-}
-
-body {
-    background-color: #1c1e21;
-    color: white;
-    display: flex;
-}
-
 main {
-    margin-left: 280px;
-    width: calc(100% - 280px);
-    min-height: 100vh;
+    padding: 3rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 40px;
 }
 
 .historico-content {
     width: 100%;
-    max-width: 900px;
-    animation: fadeIn 0.6s ease-in-out forwards;
+    max-width: 1100px;
 }
 
 .header-page {
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
 }
 
 .header-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #e63946;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .header-page h1 {
     font-size: 2.2rem;
-}
-
-.header-page p {
-    color: #888;
+    color: white;
+    margin-bottom: 5px;
 }
 
 .box-historico {
     background-color: #1c1e21;
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
     border-top: 4px solid #e63946;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 700px;
 }
 
 th {
     text-align: left;
     padding: 15px;
-    font-size: 0.8rem;
     color: #888;
     text-transform: uppercase;
+    font-size: 0.75rem;
     border-bottom: 1px solid #2c2f33;
 }
 
 td {
-    padding: 15px;
+    padding: 18px 15px;
     border-bottom: 1px solid #2c2f33;
-}
-
-tbody tr:hover {
-    background-color: #2a2d31;
+    color: #ddd;
+    font-size: 0.95rem;
 }
 
 .status {
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 0.7rem;
     font-weight: bold;
 }
 
-.status.concluido {
-    background-color: rgba(0, 255, 150, 0.15);
-    color: #00d084;
-}
+.status.concluido { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.status.pendente { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
 
-.status.pendente {
-    background-color: rgba(255, 200, 0, 0.15);
-    color: #ffb703;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-        filter: blur(4px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-
-tbody tr {
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-tbody tr:nth-child(1) { animation-delay: 0.1s; }
-tbody tr:nth-child(2) { animation-delay: 0.2s; }
-tbody tr:nth-child(3) { animation-delay: 0.3s; }
-tbody tr:nth-child(4) { animation-delay: 0.4s; }
-tbody tr:nth-child(5) { animation-delay: 0.5s; }
-
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    z-index: 9999;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
+@media (max-width: 768px) {
+    main { padding: 1.5rem; }
 }

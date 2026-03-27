@@ -2,97 +2,84 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico - REAL CARS</title>
-
     <link rel="stylesheet" href="sidebar.css">
-    <link rel="stylesheet" href="historico.css">
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="historico.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-<nav class="sidebar">
-    <div class="logo-text-container">
-        <i class="fas fa-tools logo-icon-red"></i>
-        <h2>REAL<span>CARS</span></h2>
-    </div>
-
-    <ul>
-        <li><a href="index.html"><i class="fas fa-chart-line"></i> Início</a></li>
-        <li><a href="cadastro.html"><i class="fas fa-users"></i> Clientes</a></li>
-        <li><a href="agendamento.html"><i class="fas fa-calendar-alt"></i> Agendamento</a></li>
-        <li><a href="historico.html" class="active"><i class="fas fa-history"></i> Histórico</a></li>
-    </ul>
-</nav>
-
-<main>
-    <div class="historico-content">
-
-        <div class="header-page">
-            <i class="fas fa-history header-icon"></i>
-            <h1>Histórico de Serviços</h1>
-            <p>Veja todos os serviços realizados e pendentes</p>
+    <nav class="sidebar">
+        <div class="logo-text-container">
+            <i class="fas fa-tools logo-icon-red"></i>
+            <h2>REAL<span>CARS</span></h2>
         </div>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-chart-line"></i> Início</a></li>
+            <li><a href="cadastro.html"><i class="fas fa-users"></i> Clientes</a></li>
+            <li><a href="agendamento.html"><i class="fas fa-calendar-alt"></i> Agendamento</a></li>
+            <li><a href="historico.html" class="active"><i class="fas fa-history"></i> Histórico</a></li>
+        </ul>
+    </nav>
 
-        <div class="box-historico">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cliente</th>
-                        <th>Veículo</th>
-                        <th>Serviço</th>
-                        <th>Data</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
+    <main>
+        <div class="historico-content">
+            <div class="header-page">
+                <i class="fas fa-history header-icon"></i>
+                <h1>Histórico de Serviços</h1>
+                <p>Veja todos os serviços realizados e pendentes</p>
+            </div>
 
-                <tbody>
-                    <tr>
-                        <td>João Silva</td>
-                        <td>Honda Civic</td>
-                        <td>Troca de Óleo</td>
-                        <td>25/10/2023</td>
-                        <td><span class="status concluido">CONCLUÍDO</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>Maria Oliveira</td>
-                        <td>Chevrolet Onix</td>
-                        <td>Alinhamento</td>
-                        <td>28/10/2023</td>
-                        <td><span class="status pendente">PENDENTE</span></td>
-                    </tr>
-                </tbody>
-                <tr>
-                    <td>Murilo Grando</td>
-                    <td>Wolkswagen Fusca </td>
-                    <td>Sistema de freio</td>
-                    <td>30/10/2023</td>
-                    <td><span class="status pendente">PENDENTE</span></td>
-                </tr>
-
-                <tbody>
-                    <td>Arthur José</td>
-                    <td>Porsche Cayenne</td>
-                    <td>Revisão</td>
-                    <td>31/10/2023</td>
-                    <td><span class="status concluido">CONCLUÍDO</span></td>
-                </tbody>
-
-                <tbody>
-                    <td>Maria Oliveira</td>
-                    <td>Amarok</td>
-                    <td>Alinhamento</td>
-                    <td>28/10/2023</td>
-                    <td><span class="status pendente">PENDENTE</span></td>
-                </tbody>
-            </table>
+            <div class="box-historico">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Veículo</th>
+                                <th>Serviço</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>João Silva</td>
+                                <td>Honda Civic</td>
+                                <td>Troca de Óleo</td>
+                                <td>25/10/2023</td>
+                                <td><span class="status concluido">CONCLUÍDO</span></td>
+                            </tr>
+                            <tr>
+                                <td>Maria Oliveira</td>
+                                <td>Chevrolet Onix</td>
+                                <td>Alinhamento</td>
+                                <td>28/10/2023</td>
+                                <td><span class="status pendente">PENDENTE</span></td>
+                            </tr>
+                            <tr>
+                                <td>Murilo Grando</td>
+                                <td>VW Fusca</td>
+                                <td>Sistema de freio</td>
+                                <td>30/10/2023</td>
+                                <td><span class="status pendente">PENDENTE</span></td>
+                            </tr>
+                            <tr>
+                                <td>Arthur José</td>
+                                <td>Porsche Cayenne</td>
+                                <td>Revisão</td>
+                                <td>31/10/2023</td>
+                                <td><span class="status concluido">CONCLUÍDO</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+    </main>
 
-    </div>
-</main>
+    <a href="https://wa.me/5542999809581" target="_blank">
+        <img src="unnamed.jpg" class="whatsapp-float" alt="WhatsApp">
+    </a>
 </body>
 </html>
-
-<a href="https://wa.me/5542999809581" target="_blank">
-    <img src="unnamed.jpg" class="whatsapp-float" alt="WhatsApp">
-</a>
