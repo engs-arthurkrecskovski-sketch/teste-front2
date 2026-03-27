@@ -1,16 +1,19 @@
+/* --- ESTILO DA BARRA LATERAL (SIDEBAR) --- */
 .sidebar {
     width: 280px;
     height: 100vh;
     background-color: #111111;
     padding: 2rem 0;
-    position: fixed;
+    position: fixed; /* Mantém o menu fixo ao rolar a página */
     left: 0;
     top: 0;
     display: flex;
     flex-direction: column;
     z-index: 1000;
+    border-right: 1px solid #1a1c1e;
 }
 
+/* Container do Logotipo */
 .logo-text-container {
     display: flex;
     align-items: center;
@@ -19,10 +22,27 @@
     margin-bottom: 3rem;
 }
 
-.logo-icon-red { color: #c31520; font-size: 1.6rem; }
-.sidebar h2 { color: white; font-size: 1.4rem; margin: 0; }
-.sidebar h2 span { color: #c31520; }
-.sidebar ul { list-style: none; padding: 0; }
+.logo-icon-red { 
+    color: #c31520; 
+    font-size: 1.6rem; 
+}
+
+.sidebar h2 { 
+    color: white; 
+    font-size: 1.4rem; 
+    margin: 0; 
+    font-family: 'Oswald', sans-serif; /* Fonte robusta para a marca */
+}
+
+.sidebar h2 span { 
+    color: #c31520; 
+}
+
+/* Configuração da Lista de Links */
+.sidebar ul { 
+    list-style: none; 
+    padding: 0; 
+}
 
 .sidebar a {
     display: flex;
@@ -32,34 +52,61 @@
     text-decoration: none;
     padding: 1rem 1.5rem;
     border-left: 4px solid transparent;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.sidebar a:hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
-.sidebar a.active { background-color: #1a1c1e; color: #ffffff !important; border-left: 4px solid #c31520; font-weight: bold; }
+/* Efeito ao passar o mouse */
+.sidebar a:hover { 
+    background-color: rgba(255, 255, 255, 0.05); 
+    color: #fff; 
+}
 
+/* Estilo do link da página atual */
+.sidebar a.active { 
+    background-color: #1a1c1e; 
+    color: #ffffff !important; 
+    border-left: 4px solid #c31520; 
+    font-weight: 600; 
+}
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 768px) {
     .sidebar {
         width: 100% !important;
         height: auto;
-        position: relative;
-        padding: 1rem 0;
+        position: fixed; /* Mantém o menu no topo do celular */
+        padding: 0.5rem 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
+
+    .logo-text-container {
+        margin-bottom: 0;
+        padding: 0 1rem;
+    }
+
+    .sidebar h2 { font-size: 1.1rem; }
 
     .sidebar ul {
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
     }
 
     .sidebar a {
         padding: 0.8rem;
-        font-size: 0.8rem;
-        flex-direction: column;
-        gap: 5px;
+        font-size: 0.7rem;
+        flex-direction: column; /* Ícone em cima do texto no celular */
+        gap: 3px;
         border-left: none;
         border-bottom: 3px solid transparent;
     }
 
-    .sidebar a.active { border-bottom: 3px solid #c31520; }
+    /* No mobile, o destaque da página ativa vai para a borda inferior */
+    .sidebar a.active { 
+        border-left: none;
+        border-bottom: 3px solid #c31520; 
+    }
 }

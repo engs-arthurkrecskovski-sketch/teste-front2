@@ -1,3 +1,5 @@
+/* --- CONFIGURAÇÕES DO FORMULÁRIO DE CADASTRO --- */
+
 /* Aplicando as novas fontes */
 body {
     font-family: 'Montserrat', sans-serif;
@@ -11,12 +13,14 @@ main {
     min-height: 100vh;
 }
 
+/* Container centralizado do formulário */
 .form-container { 
     width: 100%; 
     max-width: 500px; 
     animation: fadeIn 0.8s ease-in-out;
 }
 
+/* Cabeçalho do formulário */
 .header-content { 
     text-align: center; 
     margin-bottom: 2.5rem; 
@@ -43,16 +47,20 @@ main {
     font-size: 1.1rem;
 }
 
+/* Caixa principal do cadastro */
 .box-cadastro { 
     background: #1c1e21;
     padding: 3rem 2.5rem; 
     border-radius: 24px; 
-    border-right: 4px solid #e63946; /* Troquei o topo pela lateral para um estilo mais moderno */
+    border-right: 4px solid #e63946; /* Detalhe lateral moderno */
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.form-group { margin-bottom: 1.8rem; }
+.form-group { 
+    margin-bottom: 1.8rem; 
+}
 
+/* Estilização das etiquetas (Labels) */
 label { 
     display: block; 
     margin-bottom: 10px; 
@@ -63,6 +71,7 @@ label {
     letter-spacing: 1px;
 }
 
+/* Estilização dos campos de entrada (Inputs) */
 input { 
     width: 100%; 
     padding: 14px; 
@@ -82,6 +91,7 @@ input:focus {
     box-shadow: 0 0 15px rgba(230, 57, 70, 0.1);
 }
 
+/* Estilização do botão de ação */
 .btn-salvar { 
     display: flex; 
     justify-content: center; 
@@ -107,12 +117,21 @@ input:focus {
     filter: brightness(1.1);
 }
 
+/* Animação de entrada da página */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Ajustes para dispositivos móveis */
 @media (max-width: 768px) {
-    .box-cadastro { padding: 2rem 1.5rem; }
-    .header-content h1 { font-size: 2.2rem; }
+    .box-cadastro { 
+        padding: 2rem 1.5rem; 
+        border-right: none;
+        border-top: 4px solid #e63946; /* No mobile a borda volta para o topo */
+    }
+    
+    .header-content h1 { 
+        font-size: 2.2rem; 
+    }
 }

@@ -7,16 +7,18 @@
     box-sizing: border-box; 
 }
 
+/* Configuração do corpo da página e layout lado a lado */
 body { 
     font-family: 'Montserrat', sans-serif; 
     background-color: #121212; 
     color: white;
     display: flex; 
-    flex-direction: row; /* Sidebar ao lado no desktop */
+    flex-direction: row; 
     min-height: 100vh;
 }
 
 /* --- ESTRUTURA PRINCIPAL --- */
+/* Ajuste de margem para não ficar por baixo da sidebar lateral */
 main {
     margin-left: 280px; 
     width: calc(100% - 280px);
@@ -25,6 +27,7 @@ main {
     transition: all 0.3s ease;
 }
 
+/* Cabeçalho do Dashboard */
 .header-dashboard {
     margin-bottom: 40px;
     position: relative;
@@ -43,6 +46,7 @@ main {
     font-weight: 300;
 }
 
+/* Logo no canto superior direito */
 .logo-top-right {
     position: absolute;
     top: 0;
@@ -54,7 +58,7 @@ main {
     height: auto;
 }
 
-/* --- CARDS DE MÉTRICAS COM TOOLTIPS --- */
+/* --- CARDS DE MÉTRICAS --- */
 .dashboard-cards { 
     display: flex; 
     gap: 20px; 
@@ -74,7 +78,7 @@ main {
     cursor: help;
 }
 
-/* Tooltips Específicos */
+/* Estilo base para os balões de informação (Tooltips) */
 .card::after {
     position: absolute;
     bottom: 115%;
@@ -95,18 +99,31 @@ main {
     pointer-events: none;
 }
 
-.card:hover::after { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+/* Ativação do balão no hover */
+.card:hover::after { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: translateX(-50%) translateY(0); 
+}
+
+/* Conteúdo específico de cada balão */
 .card-azul::after { content: "CLIENTES:\A • João Silva\A • Maria Oliveira\A • Murilo Grando"; }
 .card-amarelo::after { content: "PENDENTES:\A • Onix (Alinhamento)\A • Fusca (Freio)"; }
 .card-verde::after { content: "CONCLUÍDOS:\A • Civic (Óleo)\A • Cayenne (Revisão)"; }
 
+/* Cores das bordas dos cards */
 .card-azul { border-color: #3b82f6; }
 .card-amarelo { border-color: #f59e0b; }
 .card-verde { border-color: #10b981; }
 
-.card span { font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 700; }
+.card span { 
+    font-family: 'Oswald', sans-serif; 
+    font-size: 3rem; 
+    font-weight: 700; 
+}
 
 /* --- GRADE DE CONTEÚDO INFERIOR --- */
+/* Layout em duas colunas para o conteúdo de baixo */
 .dashboard-grid-bottom {
     display: grid;
     grid-template-columns: 1.5fr 1fr; 
@@ -121,6 +138,7 @@ main {
     border: 1px solid #2c2f33;
 }
 
+/* Itens da fila de serviços */
 .fila-item {
     display: flex;
     justify-content: space-between;
@@ -130,11 +148,13 @@ main {
     margin-bottom: 10px;
 }
 
+/* Etiquetas coloridas (Badges) */
 .badge { padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
 .badge-amarelo { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
 .badge-azul { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
 .badge-verde { background: rgba(16, 185, 129, 0.2); color: #10b981; }
 
+/* Botões de atalho rápido */
 .atalhos { display: flex; flex-direction: column; gap: 10px; }
 .btn-atalho {
     background: #2c2f33; color: white; text-decoration: none;
@@ -143,7 +163,7 @@ main {
 }
 .btn-atalho:hover { background: #e63946; }
 
-/* --- WHATSAPP --- */
+/* --- WHATSAPP FLUTUANTE --- */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -154,22 +174,22 @@ main {
     z-index: 1000;
 }
 
-/* --- RESPONSIVIDADE (A MÁGICA ACONTECE AQUI) --- */
+/* --- RESPONSIVIDADE --- */
 
-/* Para telas de Tablet/Laptop pequeno */
+/* Ajuste para telas médias (tablets/laptops) */
 @media (max-width: 1100px) {
     .dashboard-grid-bottom { grid-template-columns: 1fr; }
 }
 
-/* Para Celulares (Ajuste da Sidebar para o Topo) */
+/* Ajuste para telas pequenas (celulares) */
 @media (max-width: 768px) {
-    body { flex-direction: column; } /* Joga a sidebar pra cima do main */
+    body { flex-direction: column; } 
 
     main {
-        margin-left: 0; /* Remove o recuo da sidebar lateral */
+        margin-left: 0; 
         width: 100%;
         padding: 1.5rem;
-        padding-top: 80px; /* Espaço para a sidebar que agora está no topo */
+        padding-top: 80px; 
     }
 
     .header-dashboard h1 { font-size: 2rem; }
@@ -180,12 +200,7 @@ main {
         margin-bottom: 20px; 
     }
 
-    /* Ajuste dos cards para não ficarem esmagados */
     .dashboard-cards { flex-direction: column; }
-    
     .card { width: 100%; }
-
-    /* Esconde o tooltip no mobile (já que não tem 'hover' de mouse) 
-       ou você pode manter, mas costuma atrapalhar o toque. */
-    .card::after { display: none; } 
+    .card::after { display: none; } /* Remove balões no mobile para evitar bugs de toque */
 }
