@@ -162,7 +162,7 @@ main {
 .logo-top-right {
     position: fixed;
     top: 20px;
-    right: 80px;
+    right: 0px;
     z-index: 999;
 }
 
