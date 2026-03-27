@@ -1,3 +1,4 @@
+/* --- ESTILO DA BARRA LATERAL (SIDEBAR) --- */
 .sidebar {
     width: 280px;
     height: 100vh;
@@ -8,8 +9,12 @@
     top: 0;
     display: flex;
     flex-direction: column;
+    z-index: 1000;
+    border-right: 1px solid #1a1c1e;
+    transition: all 0.3s ease;
 }
 
+/* Container do Logotipo */
 .logo-text-container {
     display: flex;
     align-items: center;
@@ -18,25 +23,26 @@
     margin-bottom: 3rem;
 }
 
-.logo-icon-red {
-    color: #c31520;
-    font-size: 1.6rem;
+.logo-icon-red { 
+    color: #c31520; 
+    font-size: 1.6rem; 
 }
 
-.sidebar h2 {
-    color: white;
-    font-size: 1.4rem;
-    font-family: sans-serif;
-    margin: 0;
+.sidebar h2 { 
+    color: white; 
+    font-size: 1.4rem; 
+    margin: 0; 
+    font-family: 'Oswald', sans-serif;
 }
 
-.sidebar h2 span {
-    color: #c31520;
+.sidebar h2 span { 
+    color: #c31520; 
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+/* Lista de Navegação */
+.sidebar ul { 
+    list-style: none; 
+    padding: 0; 
 }
 
 .sidebar a {
@@ -46,19 +52,58 @@
     color: #cbd5e1;
     text-decoration: none;
     padding: 1rem 1.5rem;
-    font-family: sans-serif;
     border-left: 4px solid transparent;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.sidebar a:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #fff;
+.sidebar a:hover { 
+    background-color: rgba(255, 255, 255, 0.05); 
+    color: #fff; 
 }
 
-.sidebar a.active {
-    background-color: #1a1c1e;
-    color: #ffffff !important;
-    font-weight: bold;
-    border-left: 4px solid #c31520;
+.sidebar a.active { 
+    background-color: #1a1c1e; 
+    color: #ffffff !important; 
+    border-left: 4px solid #c31520; 
+    font-weight: 600; 
+}
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100% !important;
+        height: auto; /* Deixa de ocupar a tela toda */
+        position: fixed; /* Fixa no topo */
+        padding: 0.5rem 0;
+        flex-direction: column; /* Mantém coluna ou muda para linha se preferir */
+        border-right: none;
+        border-bottom: 1px solid #1a1c1e;
+    }
+
+    .logo-text-container {
+        margin-bottom: 0.5rem;
+        justify-content: center;
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .sidebar a {
+        padding: 0.8rem;
+        font-size: 0.75rem;
+        flex-direction: column; /* Ícone sobre o texto */
+        gap: 5px;
+        border-left: none;
+        text-align: center;
+        flex: 1; /* Distribui os botões igualmente */
+    }
+
+    .sidebar a.active { 
+        border-left: none;
+        border-bottom: 3px solid #c31520; 
+    }
 }

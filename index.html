@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REALCARS - Dashboard</title>
+    
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <nav class="sidebar">
         <div class="logo-text-container">
             <i class="fas fa-tools logo-icon-red"></i>
             <h2>REAL<span>CARS</span></h2>
         </div>
-
         <ul>
             <li><a href="index.html" class="active"><i class="fas fa-chart-line"></i> Início</a></li>
             <li><a href="cadastro.html"><i class="fas fa-users"></i> Clientes</a></li>
@@ -25,9 +27,11 @@
 
     <main>
         <div class="header-dashboard">
+            <div class="logo-top-right">
+                <img src="Logo da REALCARS Auto Center.png" alt="Logo RealCars">
+            </div>
             <h1>Painel Geral</h1>
-            <p>Bem-vindo de volta!</p>
-            <p>Aqui está o resumo da oficina hoje:</p>
+            <p>Resumo operacional da oficina hoje</p>
         </div>
 
         <div class="dashboard-cards">
@@ -35,51 +39,73 @@
                 <i class="fas fa-users card-icon"></i>
                 <h3>Total Clientes</h3>
                 <span>12</span>
-                <div class="card-hover-detalhes">
-                    <h4>Novos este mês</h4>
-                    <ul>
-                        <li>+4 Clientes</li>
-                        <li>Meta: 20</li>
-                    </ul>
-                </div>
             </div>
-
-<div class="logo-top-right">
-    <img src="Logo da REALCARS Auto Center.png" alt="Logo RealCars">
-</div>
-
             <div class="card card-amarelo">
                 <i class="fas fa-clock card-icon"></i>
-                <h3>Serviços Pendentes</h3>
+                <h3>Pendentes</h3>
                 <span>04</span>
-                <div class="card-hover-detalhes">
-                    <h4>Aguardando</h4>
-                    <ul>
-                        <li>Troca de Óleo</li>
-                        <li>Freios Civic</li>
-                        <li>Revisão Onix</li>
-                    </ul>
-                </div>
             </div>
-
             <div class="card card-verde">
                 <i class="fas fa-check-circle card-icon"></i>
                 <h3>Concluídos</h3>
                 <span>28</span>
-                <div class="card-hover-detalhes">
-                    <h4>Últimos Finalizados</h4>
-                    <ul>
-                        <li>Civic - PLK9090</li>
-                        <li>Corolla - ABC1234</li>
-                        <li>Onix - JKL5566</li>
-                    </ul>
+            </div>
+        </div>
+
+        <div class="dashboard-grid-bottom">
+            
+            <div class="content-box">
+                <div class="box-header">
+                    <i class="fas fa-list-ul"></i>
+                    <h3>Serviços em Destaque</h3>
+                </div>
+
+                <div class="fila-item">
+                    <div class="info">
+                        <strong>Honda Civic - PLK9090</strong>
+                        <span>Troca de Suspensão</span>
+                    </div>
+                    <span class="badge badge-amarelo">URGENTE</span>
+                </div>
+
+                <div class="fila-item">
+                    <div class="info">
+                        <strong>VW Fusca - AJI6154</strong>
+                        <span>Sistema de Freio</span>
+                    </div>
+                    <span class="badge badge-azul">EM ANDAMENTO</span>
+                </div>
+
+                <div class="fila-item">
+                    <div class="info">
+                        <strong>Porsche Cayenne - RICH3647</strong>
+                        <span>Revisão Geral</span>
+                    </div>
+                    <span class="badge badge-verde">AGUARDANDO PEÇA</span>
+                </div>
+            </div>
+
+            <div class="content-box box-small">
+                <div class="box-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Ações Rápidas</h3>
+                </div>
+                <div class="atalhos">
+                    <a href="cadastro.html" class="btn-atalho"><i class="fas fa-user-plus"></i> Novo Cliente</a>
+                    <a href="agendamento.html" class="btn-atalho"><i class="fas fa-calendar-plus"></i> Agendar</a>
+                    
+                    <div class="status-oficina">
+                        <p><i class="fas fa-circle" style="color: #10b981;"></i> Oficina em Operação</p>
+                        <small>Capacidade: 85% ocupada</small>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <a href="https://wa.me/5542999809581" target="_blank">
+        <img src="unnamed.jpg" class="whatsapp-float" alt="WhatsApp">
+    </a>
+
 </body>
 </html>
-
-<a href="https://wa.me/5542999809581" target="_blank">
-    <img src="unnamed.jpg" class="whatsapp-float" alt="WhatsApp">
-</a>

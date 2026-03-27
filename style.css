@@ -1,174 +1,295 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* --- CONFIGURAÇÕES GERAIS E FONTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Oswald:wght@500;700&display=swap');
 
-body { 
-    font-family: 'Segoe UI', Arial, sans-serif; 
-    background-color: #1d1d1d;
-    color: white;
-    display: flex; 
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
-main {
-    margin-left: 280px; 
-    width: calc(100% - 280px);
-    padding: 3rem;
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    background-color: #121212; 
+    color: white;
+    display: flex; 
+    flex-direction: row; 
     min-height: 100vh;
 }
 
+/* --- ESTRUTURA PRINCIPAL --- */
+main {
+    margin-left: 280px; /* Espaço da sidebar no desktop */
+    width: calc(100% - 280px);
+    padding: 3rem;
+    flex-grow: 1;
+    transition: all 0.3s ease;
+}
+
+/* Cabeçalho do Dashboard */
 .header-dashboard {
     margin-bottom: 40px;
+    position: relative;
 }
 
 .header-dashboard h1 { 
+    font-family: 'Oswald', sans-serif;
     color: #ffffff; 
-    font-size: 2.2rem;
-    margin-bottom: 5px; 
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .header-dashboard p {
     color: #888;
+    font-weight: 300;
 }
 
+/* Logo no canto superior direito (Desktop) */
+.logo-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.logo-top-right img {
+    width: 140px;
+    height: auto;
+}
+
+/* --- CARDS DE MÉTRICAS --- */
 .dashboard-cards { 
     display: flex; 
-    gap: 25px; 
+    gap: 20px; 
+    flex-wrap: wrap; 
 }
 
 .card {
     background: #1c1e21;
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1.5rem;
     border-radius: 20px;
     flex: 1;
+    min-width: 200px;
     text-align: center;
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border-top: 4px solid #3b82f6;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    cursor: pointer;
+    position: relative; 
+    transition: 0.3s;
+    border-bottom: 4px solid #3b82f6; 
+    cursor: help;
 }
 
-.card-icon {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    opacity: 0.7;
-}
-
-.card h3 { 
-    color: #888; 
-    font-size: 0.85rem; 
-    text-transform: uppercase; 
-    letter-spacing: 1px;
-}
-
-.card span { 
-    font-size: 3.5rem; 
-    font-weight: 900; 
-    display: block; 
-    margin-top: 10px; 
-    color: #ffffff; 
-}
-
-.card-azul { border-top-color: #3b82f6; }
-.card-azul .card-icon { color: #3b82f6; }
-
-.card-amarelo { border-top-color: #f59e0b; }
-.card-amarelo .card-icon { color: #f59e0b; }
-
-.card-verde { border-top-color: #10b981; }
-.card-verde .card-icon { color: #10b981; }
-
-.card:hover {
-    transform: translateY(-10px);
-    background-color: #25282c;
-}
-
-.card-hover-detalhes {
+/* Tooltips (Balões de Informação) */
+.card::after {
     position: absolute;
-    top: 105%;
+    bottom: 115%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    width: 90%; 
-    background-color: #2c2f33;
-    border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-    padding: 15px;
+    background: #2c2f33;
+    color: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    text-align: left;
+    border: 1px solid #e63946;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 999;
-    border: 1px solid #3e4247;
+    transition: 0.3s;
+    z-index: 100;
+    white-space: pre;
+    pointer-events: none;
 }
 
-.card-hover-detalhes::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 8px;
-    border-style: solid;
-    border-color: transparent transparent #2c2f33 transparent;
+.card:hover::after { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: translateX(-50%) translateY(0); 
 }
 
-.card:hover .card-hover-detalhes {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0px);
+.card-azul::after { content: "CLIENTES:\A • João Silva\A • Maria Oliveira\A • Murilo Grando"; }
+.card-amarelo::after { content: "PENDENTES:\A • Onix (Alinhamento)\A • Fusca (Freio)"; }
+.card-verde::after { content: "CONCLUÍDOS:\A • Civic (Óleo)\A • Cayenne (Revisão)"; }
+
+.card-azul { border-color: #3b82f6; }
+.card-amarelo { border-color: #f59e0b; }
+.card-verde { border-color: #10b981; }
+
+.card span { 
+    font-family: 'Oswald', sans-serif; 
+    font-size: 3rem; 
+    font-weight: 700; 
 }
 
-.card-hover-detalhes h4 {
-    font-size: 0.7rem;
-    color: #e63946;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+/* --- GRADE DE CONTEÚDO INFERIOR --- */
+.dashboard-grid-bottom {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 25px;
+    margin-top: 30px;
 }
 
-.card-hover-detalhes ul {
-    list-style: none;
-    text-align: left;
+.content-box {
+    background: #1c1e21;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #2c2f33;
 }
 
-.card-hover-detalhes li {
-    font-size: 0.85rem;
-    color: #ddd;
-    padding: 6px 0;
-    border-bottom: 1px solid #3e4247;
+.fila-item {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    justify-content: space-between;
+    padding: 15px;
+    background: #25282c;
+    border-radius: 12px;
+    margin-bottom: 10px;
 }
 
-.card-hover-detalhes li::before {
-    content: '•';
-    color: #e63946;
+/* Etiquetas de Status */
+.badge { padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
+.badge-amarelo { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+.badge-azul { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+.badge-verde { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+
+/* Atalhos Rápidos */
+.atalhos { display: flex; flex-direction: column; gap: 10px; }
+.btn-atalho {
+    background: #2c2f33; color: white; text-decoration: none;
+    padding: 12px; border-radius: 10px; text-align: center; font-size: 0.9rem;
+    border: 1px solid #3e4247; transition: 0.3s;
+}
+.btn-atalho:hover { background: #e63946; }
+
+/* Status da Oficina */
+.status-oficina {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #2c2f33;
+    font-size: 0.85rem;
 }
 
-.card-hover-detalhes li:last-child { border-bottom: none; }
-
+/* --- WHATSAPP FLUTUANTE --- */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 60px;
-    height: 60px;
-    z-index: 9999;
-    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    z-index: 1000;
     transition: 0.3s;
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
+.whatsapp-float:hover { transform: scale(1.1); }
+
+/* --- RESPONSIVIDADE (MOBILE & TABLET) --- */
+
+/* Ajuste para Tablets */
+@media (max-width: 1100px) {
+    .dashboard-grid-bottom { grid-template-columns: 1fr; }
 }
 
+<<<<<<< HEAD
 .logo-top-right {
     position: fixed;
     top: 20px;
     right: 0px;
     z-index: 999;
+=======
+/* Ajuste Crítico para Celulares */
+@media (max-width: 768px) {
+    body { 
+        flex-direction: column; /* Sidebar vai para o topo */
+    }
+
+    main {
+        margin-left: 0 !important; /* Remove recuo lateral */
+        width: 100% !important;
+        padding: 1.5rem;
+        padding-top: 140px !important; /* Espaço para não ficar sob a sidebar fixa */
+    }
+
+    .header-dashboard {
+        text-align: center;
+    }
+
+    .header-dashboard h1 { font-size: 2rem; }
+    
+    .logo-top-right { 
+        position: relative; 
+        display: block; 
+        margin: 0 auto 20px auto; 
+        text-align: center;
+    }
+
+    /* Cards em coluna no mobile */
+    .dashboard-cards { flex-direction: column; }
+    .card { width: 100%; }
+    .card::after { display: none; } /* Remove tooltips no toque */
+
+    /* Grid inferior em uma coluna */
+    .dashboard-grid-bottom { grid-template-columns: 1fr; }
+>>>>>>> 954888d3d41729b9ed3c5fe047140934a380b0f0
 }
 
-.logo-top-right img {
-    width: 200px;
-    height: auto;
+/* --- ANIMAÇÃO DIFERENCIADA DO DASHBOARD --- */
+
+main {
+    animation: dashboardEntrada 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.dashboard-cards .card {
+    opacity: 0;
+    animation: cardsEntrada 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
 
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+
+.dashboard-grid-bottom {
+    opacity: 0;
+    animation: conteudoEntrada 1s ease forwards;
+    animation-delay: 0.8s;
+}
+
+/* Dashboard aparece com blur e slide */
+@keyframes dashboardEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Cards entram com efeito suave */
+@keyframes cardsEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(50px) rotateX(10deg);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+        filter: blur(0);
+    }
+}
+
+/* Conteúdo inferior surge */
+@keyframes conteudoEntrada {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(40px);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+}
