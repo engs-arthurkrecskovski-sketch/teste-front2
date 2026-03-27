@@ -12,6 +12,7 @@ body {
     background-color: #121212; 
     color: white;
     display: flex; 
+    flex-direction: row; /* Sidebar ao lado no desktop */
     min-height: 100vh;
 }
 
@@ -35,7 +36,6 @@ main {
     font-size: 2.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 5px; 
 }
 
 .header-dashboard p {
@@ -52,13 +52,12 @@ main {
 .logo-top-right img {
     width: 140px;
     height: auto;
-    filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.2));
 }
 
-/* --- CARDS DE MÉTRICAS COM TOOLTIPS ESPECÍFICOS --- */
+/* --- CARDS DE MÉTRICAS COM TOOLTIPS --- */
 .dashboard-cards { 
     display: flex; 
-    gap: 25px; 
+    gap: 20px; 
     flex-wrap: wrap; 
 }
 
@@ -67,16 +66,15 @@ main {
     padding: 2rem 1.5rem;
     border-radius: 20px;
     flex: 1;
-    min-width: 250px;
+    min-width: 200px;
     text-align: center;
     position: relative; 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.3s;
     border-bottom: 4px solid #3b82f6; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     cursor: help;
 }
 
-/* Base comum para todos os balões (Tooltips) */
+/* Tooltips Específicos */
 .card::after {
     position: absolute;
     bottom: 115%;
@@ -84,173 +82,110 @@ main {
     transform: translateX(-50%) translateY(10px);
     background: #2c2f33;
     color: #fff;
-    padding: 15px;
-    border-radius: 12px;
-    font-size: 0.85rem;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.8rem;
     text-align: left;
     border: 1px solid #e63946;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
     opacity: 0;
     visibility: hidden;
     transition: 0.3s;
     z-index: 100;
     white-space: pre;
-    line-height: 1.6;
     pointer-events: none;
 }
 
-.card:hover::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* Tooltip Azul: Lista de Clientes */
-.card-azul::after {
-    content: "ÚLTIMOS CLIENTES:\A • João Silva\A • Maria Oliveira\A • Murilo Grando\A • Arthur José";
-}
-
-/* Tooltip Amarelo: O que está pendente */
-.card-amarelo::after {
-    content: "SERVIÇOS EM ABERTO:\A • Onix (Alinhamento)\A • Fusca (Sistema Freio)\A • Civic (Suspensão)\A • Amarok (Motor)";
-}
-
-/* Tooltip Verde: O que já foi concluído */
-.card-verde::after {
-    content: "CONCLUÍDOS HOJE:\A • Civic (Troca Óleo)\A • Cayenne (Revisão)\A • HB20 (Check-up)\A • Fit (Bateria)";
-}
+.card:hover::after { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.card-azul::after { content: "CLIENTES:\A • João Silva\A • Maria Oliveira\A • Murilo Grando"; }
+.card-amarelo::after { content: "PENDENTES:\A • Onix (Alinhamento)\A • Fusca (Freio)"; }
+.card-verde::after { content: "CONCLUÍDOS:\A • Civic (Óleo)\A • Cayenne (Revisão)"; }
 
 .card-azul { border-color: #3b82f6; }
-.card-azul .card-icon { color: #3b82f6; }
 .card-amarelo { border-color: #f59e0b; }
-.card-amarelo .card-icon { color: #f59e0b; }
 .card-verde { border-color: #10b981; }
-.card-verde .card-icon { color: #10b981; }
 
-.card:hover {
-    transform: translateY(-5px);
-    background-color: #25282c;
-}
+.card span { font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 700; }
 
 /* --- GRADE DE CONTEÚDO INFERIOR --- */
 .dashboard-grid-bottom {
     display: grid;
     grid-template-columns: 1.5fr 1fr; 
-    gap: 30px;
-    margin-top: 40px;
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .content-box {
     background: #1c1e21;
-    border-radius: 24px;
-    padding: 25px;
+    border-radius: 20px;
+    padding: 20px;
     border: 1px solid #2c2f33;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.box-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #2c2f33;
-}
-
-.box-header i { color: #e63946; font-size: 1.2rem; }
-.box-header h3 { 
-    font-family: 'Oswald', sans-serif; 
-    font-size: 1.3rem; 
-    text-transform: uppercase; 
-}
-
-/* Itens da Lista de Serviços */
 .fila-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 18px;
-    background: #25282c;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    transition: 0.3s ease;
-}
-
-.fila-item:hover { 
-    background: #2c2f33; 
-    transform: translateX(5px);
-}
-
-.fila-item .info strong { display: block; color: #fff; font-size: 1rem; }
-.fila-item .info span { color: #888; font-size: 0.85rem; }
-
-/* Badges de Status */
-.badge {
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-size: 0.7rem;
-    font-weight: 700;
-}
-.badge-amarelo { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
-.badge-azul { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
-.badge-verde { background: rgba(16, 185, 129, 0.15); color: #10b981; }
-
-/* Box de Atalhos Rápidos */
-.atalhos { display: flex; flex-direction: column; gap: 15px; }
-
-.btn-atalho {
-    background: #2c2f33;
-    color: white;
-    text-decoration: none;
     padding: 15px;
+    background: #25282c;
     border-radius: 12px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    border: 1px solid #3e4247;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    margin-bottom: 10px;
 }
 
-.btn-atalho:hover { 
-    background: #e63946; 
-    border-color: #e63946; 
-}
+.badge { padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
+.badge-amarelo { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+.badge-azul { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+.badge-verde { background: rgba(16, 185, 129, 0.2); color: #10b981; }
 
-.status-oficina {
-    margin-top: 10px;
-    padding: 20px;
-    background: rgba(16, 185, 129, 0.05);
-    border-radius: 15px;
-    text-align: center;
-    border: 1px dashed rgba(16, 185, 129, 0.3);
+.atalhos { display: flex; flex-direction: column; gap: 10px; }
+.btn-atalho {
+    background: #2c2f33; color: white; text-decoration: none;
+    padding: 12px; border-radius: 10px; text-align: center; font-size: 0.9rem;
+    border: 1px solid #3e4247; transition: 0.3s;
 }
+.btn-atalho:hover { background: #e63946; }
 
-/* --- WHATSAPP FIXO --- */
+/* --- WHATSAPP --- */
 .whatsapp-float {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 60px;
-    height: 60px;
-    z-index: 9999;
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #25d366;
-    transition: 0.3s;
+    z-index: 1000;
 }
 
-.whatsapp-float:hover { transform: scale(1.1); }
+/* --- RESPONSIVIDADE (A MÁGICA ACONTECE AQUI) --- */
 
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 1200px) {
+/* Para telas de Tablet/Laptop pequeno */
+@media (max-width: 1100px) {
     .dashboard-grid-bottom { grid-template-columns: 1fr; }
 }
 
+/* Para Celulares (Ajuste da Sidebar para o Topo) */
 @media (max-width: 768px) {
-    main { margin-left: 0; width: 100%; padding: 1.5rem; }
-    .header-dashboard h1 { font-size: 2.2rem; }
+    body { flex-direction: column; } /* Joga a sidebar pra cima do main */
+
+    main {
+        margin-left: 0; /* Remove o recuo da sidebar lateral */
+        width: 100%;
+        padding: 1.5rem;
+        padding-top: 80px; /* Espaço para a sidebar que agora está no topo */
+    }
+
+    .header-dashboard h1 { font-size: 2rem; }
+    
+    .logo-top-right { 
+        position: relative; 
+        display: block; 
+        margin-bottom: 20px; 
+    }
+
+    /* Ajuste dos cards para não ficarem esmagados */
+    .dashboard-cards { flex-direction: column; }
+    
+    .card { width: 100%; }
+
+    /* Esconde o tooltip no mobile (já que não tem 'hover' de mouse) 
+       ou você pode manter, mas costuma atrapalhar o toque. */
+    .card::after { display: none; } 
 }
